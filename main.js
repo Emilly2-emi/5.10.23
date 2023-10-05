@@ -1,6 +1,5 @@
 
 
-
 var paddle2 =10,paddle1=10;
 
 var paddle1X = 10,paddle1Height = 110;
@@ -25,9 +24,18 @@ rightWristY = 0;
 rightWristX = 0;
 scoreRightWrist = 0;
 
-//Defina uma variável para manter o status do jogo
+game_status = "";
 
- 
+function preload(){
+  ball_touch_paddel = loadSound("ball_touch_paddel.wav");
+  missed = loadSound("missed.wav");
+}
+
+function restart(){
+  loop();
+  pcscore = 0;
+  playerscore = 0;
+}
 
 function setup(){
 var canvas =  createCanvas(700,600);
@@ -59,12 +67,12 @@ function gotPoses(results)
 
 function startGame()
 {
-   //defina o valor da variável de status criada na etapa 1 para "start".
- //Atualize a tag h3 que criamos dentro do arquivo index.html no projeto 138, que tem id “status” para "Jogo Carregado".
+game_status = "start";
+document.getElementById("status").innerHTML = "O jogo está carregando";
 }
 
 function draw(){
-if() // dentro da condição if, verifique se game_status é igual ao valor "start".
+if(game_status =="start")
 {
   background(0); 
   image(video, 0, 0, 700, 600);
@@ -166,11 +174,13 @@ function move(){
   if (ball.x-2.5*ball.r/2< 0){
   if (ball.y >= paddle1Y&& ball.y <= paddle1Y + paddle1Height) {
     ball.dx = -ball.dx+0.5; 
-    
+    ball_touch_paddel.play();
+    playerscore++;
+  
   }
   else{
     pcscore++;
-    
+    missed.play();
     reset();
     navigator.vibrate(100);
   }
@@ -183,7 +193,7 @@ if(pcscore ==4){
     stroke("white");
     textSize(25);
     text("Fim de jogo!",width/2,height/2);
-    text("Recarregue a página!",width/2,height/2+30)
+    text("Clique no botão Reiniciar para jogar novamente!",width/2,height/2+30)
     noLoop();
     pcscore = 0;
  }
