@@ -1,0 +1,64 @@
+<!--criado por prashant shukla-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Título da Página</title>
+ 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+     
+        <link rel="stylesheet" href="style.css">
+        <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/addons/p5.sound.min.js"></script>   
+    </head>
+    <body background="background.jpg">
+        <center>
+
+            <div class="btn btn-warning heading">
+              <h3>JOGO PING PONG COM IA </h3>
+              <button class="btn btn-warning"  data-toggle="modal" data-target="#myModal">Instruções</button>
+            </div>
+      
+            <br><br>
+            <button class="btn btn-success" onclick="startGame()" id="start">Jogar</button>
+            <br><br>
+            <h3 id="status" class="btn btn-default"></h3>
+            <br><br>
+            <div id="canvas"></div>
+            <br><br>
+            <button onclick="restart()" class="btn btn-danger" id="restart">Reiniciar</button>
+            <br><br>
+            
+            <h4>Desenvolvido por: BYJU's Team</h4>
+        
+            <div id="myModal" class="modal fade ">
+              <div class="modal-dialog" >
+                <!-- Modal content-->
+                <div class="modal-content">
+            
+                  <div class="modal-header">
+                    <button class="close" data-dismiss="modal">&times;</button>
+                    <h3>Instruções</h#>
+                  </div>
+            
+                   <div class="modal-body">
+                       <ol>
+                           <li>Primeiro, mantenha a tela do seu computador reta;</li>
+                           <li>Afaste-se aproximadamente 1 metro do computador;</li>
+                           <li>Mova seu pulso direito de forma ascendente e descendente, um ponto vermelho deve aparecer nele;</li>
+                           <li>Agora pressione o botão Jogar e, novamente, afaste-se 1 metro do computador;</li>
+                           <li>A raquete vermelha é sua, que se moverá conforme o movimento do seu pulso direito.</li>
+                       </ol>
+                    </div>
+      
+                </div>
+              </div>
+            </div>
+      </center>
+
+<script src="main.js"></script>
+</body>
+</html>
